@@ -14,8 +14,8 @@ THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLI
 /*
 confreader.hpp	ver 15.12.2023
 
-Confreader provides functionality to parse text config file with `key=value` pairs and to retrieve parameters values. Confreader supports sections. Configuration parameters can be located within sections or without sections.
-In contrast to the usual .conf or .ini file format
+Confreader provides functionality to parse text config file with `key=value` pairs and to retrieve parameters values. Confreader supports sections. Configuration parameters can be located within sections or outside sections.
+In addition to the usual .conf or .ini file format
 
 # first comment
 ParamWithoutSection = yes
@@ -418,7 +418,6 @@ public:
 		int k;
 		
 		if((val = find(key, section)) != nullptr){
-			// We found the parameter
 			if((val[0] < '0' || val[0] > '9') && val[0] != '-'){
 				errorNum = CONFREADER_EINVVAL;
 				return defaultValue;
@@ -440,7 +439,6 @@ public:
 		int k;
 		
 		if((val = find(key, section)) != nullptr){
-			// We found the parameter
 			if((val[0] < '0' || val[0] > '9') && val[0] != '-'){
 				errorNum = CONFREADER_EINVVAL;
 				return defaultValue;
@@ -462,7 +460,6 @@ public:
 		int ret;
 		
 		if((val = find(key, section)) != nullptr){
-			// We found the parameter
 			if(strcasecmp(val, "yes") == 0 || strcasecmp(val, "true") == 0 || (val[0] == '1' && val[1] == 0)){
 				return true;
 			}
