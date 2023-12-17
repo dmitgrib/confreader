@@ -95,7 +95,7 @@ delete cfgFile;
 #### Return values of the function (method) `parseFile`
 
 parseFile returns CONFREADER_OK or CONFREADER_ERROR.
-In this case errorNum = CONFREADER_OK.
+If no error occurred, errorNum = CONFREADER_OK.
 
 In case of an error, errorNum takes one of the following values:
 CONFREADER_EREADFILE
